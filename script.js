@@ -1,5 +1,5 @@
-const API_KEY = "YOUR_API_KEY"; // Replace with your GCSE API key
-const CX = "YOUR_CX"; // Replace with your custom search engine ID
+const API_KEY = "AIzaSyAtZFCfta4V-SyQXenQYI6wElUcos5kULs"; // Replace with your GCSE API key
+const CX = "568b6415b7aa74ca9"; // Replace with your custom search engine ID
 
 function search() {
   const query = document.getElementById("searchInput").value;
