@@ -3,16 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Custom Search</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Suham's Search Engine</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
+    form { margin-bottom: 20px; }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 1rem;
+    }
+    .result {
+      margin-bottom: 15px;
+      background: white;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    #pagination {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>My Custom Search</h1>
-    <input type="text" id="searchInput" placeholder="Search..."/>
-    <button onclick="search()">Search</button>
-    <div id="results"></div>
+  <form method="GET" action="/">
+    <input type="text" name="search" id="searchBox" placeholder="Search..." />
+    <button type="submit">Search</button>
+  </form>
+
+  <div id="results"></div>
+  <div id="pagination">
+    <button onclick="prevPage()">Previous</button>
+    <button onclick="nextPage()">Next</button>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
