@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Suham's Search Engine</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
-    form { margin-bottom: 20px; }
-    input[type="text"] {
-      width: 80%;
-      padding: 10px;
-      font-size: 1rem;
-    }
-    button {
-      padding: 10px 15px;
-      font-size: 1rem;
-    }
-    .result {
-      margin-bottom: 15px;
-      background: white;
-      padding: 10px;
-      border-radius: 6px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    #pagination {
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colossus</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.jpg">
 </head>
-<body>
-  <form method="GET" action="/">
-    <input type="text" name="search" id="searchBox" placeholder="Search..." />
-    <button type="submit">Search</button>
-  </form>
+<body id="body">
+    <h1 id="brand">Colossus</h1>
+    <form method="get" action="/">
+        <center><input type="text" name="search" id="searchBox" placeholder="Search Colossus" /><button id="search"type="submit">Search</button></center>
+        </form>
+    <hr>
+    <div id="tab">                                                    
+        <button class="tabs" onclick="webTab()">Web</button>
+        <button class="tabs" onclick="imageTab()">Images</button>        
+    </div>
+    <div id="results"></div>
+    <div id="images"></div>
+    <div id="about">
+        <p>
 
-  <div id="results"></div>
-  <div id="pagination">
-    <button onclick="prevPage()">Previous</button>
-    <button onclick="nextPage()">Next</button>
-  </div>
 
-  <script src="script.js"></script>
+            Colossus is search engine that uses the api of a google 
+            programmable search engine.
+            <br>
+            <br>
+            I made this to replace my everyday search engine with 
+            something lighter like Colossus. It is in the form of
+            suham.is-not.cool/?search=%s so you can use it as your
+            default search engine.
+
+            <br>
+            <br>
+            For suggestions and improvements contact me at <a href="mailto:suhamofalltrades@gmail.com">mail</a>
+            <br>
+            <a href="https:\\www.instagram.com/suhamofalltrades">Instagram</a>
+            
+        </p>
+    </div>    
+    <div id="page">
+        <center>
+            <button class="button" onclick="prevPage()">Previous</button>
+            <button class="button" onclick="nextPage()">Next</button>
+            </center>        
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
