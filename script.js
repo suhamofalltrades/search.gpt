@@ -1,5 +1,5 @@
-const API_KEY = "AIzaSyAtZFCfta4V-SyQXenQYI6wElUcos5kULs"; // Replace with your GCSE API key
-const CX = "568b6415b7aa74ca9"; // Replace with your custom search engine ID
+const API_KEY = "AIzaSyAGPW7ruR-7LFZBt9QXqXWxoWZBhe2qPS0"; // Replace with your GCSE API key
+const CX = "b76608c6862b042dd"; // Replace with your custom search engine ID
 // Replace with your Custom Search Engine ID
 
 const timeDiv = document.getElementById("searcTime");
