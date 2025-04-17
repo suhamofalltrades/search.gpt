@@ -45,7 +45,7 @@ function performSearch() {
         }); 
       
       } else {
-        performSearch()
+        performSearch2()
       }
     })
     .catch(err => {
