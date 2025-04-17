@@ -75,7 +75,7 @@ function performImageSearch() {
         }); 
           
       } else {
-        resultsDiv.innerHTML = "<p>No results found.</p>";
+        performImageSearch2()
       }
     })
     .catch(err => {
@@ -112,6 +112,37 @@ function performSearch2() {
       console.error("Search failed", err);
     
     });}
+
+function performImageSearch2() {
+  if (!currentQuery) return;
+    
+    fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY2}&cx=${CX2}&q=${encodeURIComponent(currentQuery)}&searchType=image&start=${currentStartIndex}`)
+      .then(res => res.json())
+      .then(data => {
+        const imagesDiv = document.getElementById("images");
+        imagesDiv.innerHTML = "";
+    
+        if (data.items) {
+          data.items.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "image";
+            div.innerHTML = `
+              <a href="${item.image.contextLink}" target="_blank"><img src="${item.link}" alt="${item.title}"></a>            
+            `;
+          imagesDiv.appendChild(div);
+        showButton() 
+        tab()                         
+        }); 
+          
+      } else {
+        resultsDiv.innerHTML = "<p>No results found.</p>";
+      }
+    })
+    .catch(err => {
+      console.error("image Search failed", err);
+        
+    });}
+
 function showButton() {  
   document.getElementById("page").style.visibility = "visible"
   document.getElementById("about").style.display = "none"
