@@ -1,6 +1,7 @@
-const API_KEY = "AIzaSyAGPW7ruR-7LFZBt9QXqXWxoWZBhe2qPS0"; // Replace with your GCSE API key
-const CX = "b76608c6862b042dd"; // Replace with your custom search engine ID
-// Replace with your Custom Search Engine ID
+const API_KEY = "AIzaSyAGPW7ruR-7LFZBt9QXqXWxoWZBhe2qPS0";
+const CX = "b76608c6862b042dd"; 
+const API_KEY2 = "AIzaSyCso1GQWbQk4kpw4Yj8W5mTPJpD0JViul4"
+const CX2 = "568b6415b7aa74ca9"
 
 const timeDiv = document.getElementById("searcTime");
 
@@ -44,7 +45,7 @@ function performSearch() {
         }); 
       
       } else {
-        resultsDiv.innerHTML = "<p>No results found.</p>";
+        performSearch()
       }
     })
     .catch(err => {
@@ -80,6 +81,36 @@ function performImageSearch() {
     .catch(err => {
       console.error("image Search failed", err);
         
+    });}
+
+function performSearch2() {
+  if (!currentQuery) return;
+
+  fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY2}&cx=${CX2}&q=${encodeURIComponent(currentQuery)}&start=${currentStartIndex}`)
+    .then(res => res.json())
+    .then(data => {
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.innerHTML = "";
+
+      if (data.items) {
+        data.items.forEach(item => {
+          const div = document.createElement("div");
+          div.className = "result";
+          div.innerHTML = `
+            <a href="${item.link}" target="_blank"><h3>${item.title}</h3></a>
+            <p>${item.snippet}</p>            
+          `;
+          resultsDiv.appendChild(div);
+        showButton()                          
+        }); 
+      
+      } else {
+        resultsDiv.innerHTML = "<p>No results found.</p>";
+      }
+    })
+    .catch(err => {
+      console.error("Search failed", err);
+    
     });}
 function showButton() {  
   document.getElementById("page").style.visibility = "visible"
